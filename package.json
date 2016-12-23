@@ -1,0 +1,9 @@
+{
+    "author":"EdgarPozas",
+    
+	"dependencies":{
+		"express":"*",
+		"body-parser":"*",
+		"jade":"*"
+	}
+}

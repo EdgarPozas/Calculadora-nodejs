@@ -1,0 +1,35 @@
+-var servidor="http://localhost:3000"
+html
+	head
+		meta(charset="utf-8")
+		title #{titulo}
+		link(rel="stylesheet", href="#{servidor}/css/style.css")
+	body.f1f
+
+		div.bar_back.fff.b5.w10
+		div.bar_front.fff.b5.w10
+			div.p10x
+				if resultado.err
+					h1(style="background:red;").w80.center.m10x #{resultado}
+				else
+					h1.w80.center.m10x #{resultado}
+		div.w80.fff.p5.b5.m0_5.center
+			div(style="margin-top:10%")
+				form(action="/operacion",method="POST")
+					input(type="text",name="num")#input.w10.input
+					div.separador
+					div.pad.w60.in.vt
+						-var numeros=["1","2","3","4","5","6","7","8","9"]
+						each numero, i in numeros
+							button(type="button",onclick="addDato(#{numero})").btn.in #{numero}
+					div.separador
+					div.w40.in.vt
+						-var operaciones=["+","-","*","/","(",")","DEL","="]
+						each operacion, i in operaciones
+							if operacion=="="
+								input(type="submit",value="#{operacion}").btn.in
+							else
+								button(type="button",onclick="addDato('#{operacion}')").btn.in #{operacion}
+
+
+		script(src="#{servidor}/js/js.js",type="text/javascript")
